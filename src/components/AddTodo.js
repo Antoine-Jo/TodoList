@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addTodo } from '../store/actions';
+import { tryAddTodo } from '../store/actions';
 
 class AddTodo extends Component {
 
@@ -11,7 +11,7 @@ class AddTodo extends Component {
     }
     
     submitTodo = () => {
-        this.props.addTodo({
+        this.props.tryAddTodo({
             name: this.input.current.value,
             done: false
         })
@@ -30,4 +30,4 @@ class AddTodo extends Component {
     }
 }
 
-export default connect(null, { addTodo })(AddTodo)
+export default connect(null, { tryAddTodo })(AddTodo)
