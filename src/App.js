@@ -1,3 +1,4 @@
+import { Route, Routes, Redirect, Navigate } from "react-router-dom";
 import AddTodo from "./components/AddTodo";
 import Filter from "./components/Filter";
 import TodoList from "./components/TodoList";
@@ -16,7 +17,10 @@ function App() {
           <Filter />
         </div>
         <div className="card-body">
-          <TodoList />
+          <Routes>
+            <Route path="/:filter" element={ <TodoList /> } />
+            {/* <TodoList /> */}
+          </Routes>
         </div>
       </div>
     </div>
