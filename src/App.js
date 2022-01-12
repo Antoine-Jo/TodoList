@@ -1,4 +1,4 @@
-import { Route, Routes, Redirect, Navigate } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import AddTodo from "./components/AddTodo";
 import Filter from "./components/Filter";
 import TodoList from "./components/TodoList";
@@ -17,10 +17,11 @@ function App() {
           <Filter />
         </div>
         <div className="card-body">
-          <Routes>
-            <Route path="/:filter" element={ <TodoList /> } />
+          <Switch>
+            <Route path="/:filter" component={ TodoList } />
+            <Redirect to="/all" />
+          </Switch>
             {/* <TodoList /> */}
-          </Routes>
         </div>
       </div>
     </div>

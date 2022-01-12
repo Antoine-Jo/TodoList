@@ -1,7 +1,6 @@
-import { createSelector } from 'reselect'
-import { visibilityFilters } from './actions';
+import { createSelector } from 'reselect';
 
-export const filterSelector = state => state.filter;
+export const filterSelector = (state, filter) => filter;
 export const todoSelector = state => state.todos;
 
 export const todosListSelector = createSelector(
@@ -14,10 +13,10 @@ export const filteredTodoDataSelector = createSelector(
     (filter, todos) => {
         if (todos && filter) {
             switch(filter) {
-                case visibilityFilters.SHOW_DONE:  {
+                case 'done':  {
                     return todos.filter( t => t.done )
                 }
-                case visibilityFilters.SHOW_ACTIVE: {
+                case 'active': {
                     return todos.filter( t => !t.done )
                 }
                 default: {

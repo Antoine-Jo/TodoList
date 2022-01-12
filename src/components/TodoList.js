@@ -23,9 +23,10 @@ class TodoList extends Component {
     }
 }
 
-export default connect((state) => {
+export default connect((state, ownProps) => {
+    const filter = ownProps.match.params.filter;
     return {
-        todos: filteredTodoDataSelector(state)
+        todos: filteredTodoDataSelector(state, filter)
     }
 }, {
     toggleTodo,
